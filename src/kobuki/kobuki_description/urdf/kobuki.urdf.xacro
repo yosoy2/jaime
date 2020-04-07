@@ -227,12 +227,12 @@
 
     <!-- kobuki agrega link_palo y base-->
 
-    <joint name="camara_joint" type="fixed">
+    <!--joint name="camara_joint" type="fixed">
       <axis xyz="0 1 0" />
       <origin xyz="0 0 0.8" rpy="0 0 0"/>
       <parent link="link_palo"/>
       <child link="camara"/>
-    </joint>
+    </joint-->
 
 
     <!--joint camara de profunidad-->
@@ -245,34 +245,33 @@
     </joint>
 
     <joint name="camara_profundidad_optical_joint" type="fixed">
-  <origin xyz="0 0 0" rpy="${-M_PI/2} 0 ${-M_PI/2}" />
-  <parent link="camara_profundidad" />
-  <child link="camara_profundidad_optical" />
-</joint>
+      <origin xyz="0 0 0" rpy="${-M_PI/2} 0 ${-M_PI/2}" />
+      <parent link="camara_profundidad" />
+      <child link="camara_profundidad_optical" />
+    </joint>
 
 
-<link name="camara_profundidad_optical"/>
-    <link name="camara">
-      <!--collision>
-        <origin xyz="0 0 0" rpy="0 0 0"/>
-        <geometry>
-      <box size="${camara ${camara} ${camara}"/>
-        </geometry>
-      </collision-->
+<!--link name="camara_profundidad_optical"/-->
+    <link name="camara_profundidad_optical">
       <visual>
         <origin xyz="0 0 0" rpy="0 0 0"/>
         <geometry>
+          <!--mesh filename="package://kobuki_description/meshes/camera_ASUS_XTION.STL"/-->
           <!--box size="${camara} ${camara} ${camara}"/-->
-          <mesh filename="package://kobuki_description/meshes/camera_ASUS_XTION.STL"/>
+          <box size="0 0 0"/>
         </geometry>
         <material name="red"/>
       </visual>
-      <!--inertial>
-        <mass value="1e-5" />
-        <origin xyz="0 0 0" rpy="0 0 0"/>
-        <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6" />
-      </inertial-->
     </link>
+
+    <!--link name="camara_profundidad_optical"/>
+      <visual>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <geometry>
+          <box size="${camara} ${camara} ${camara}"/>
+        </geometry>
+      </visual>
+    </link-->
 
     <!--camara de profunidad, kinetic microsoft-->
 
