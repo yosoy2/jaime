@@ -350,6 +350,21 @@
       <child link="wood_base"/>
     </joint>
 
+    <!--link name="structure" type="fixed">
+      <visual>
+        <geometry>
+          <mesh filename="package://kobuki_description/meshes/structure_link.STL"/>
+        </geometry>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+      </visual>
+    </link-->
+
+    <!--joint name="structure_to_base" type="fixed">
+      <origin xyz="0 0 0"/>
+      <parent link="base_link"/>
+      <child link="structure"/>
+    </joint-->
+
     <!-- Kobuki Gazebo simulation details -->
     <kobuki_sim/>
   </xacro:macro>
