@@ -11,7 +11,7 @@
 <robot name="kobuki" xmlns:xacro="http://ros.org/wiki/xacro">
   <xacro:include filename="$(find kobuki_description)/urdf/common_properties.urdf.xacro"/>
   <xacro:include filename="$(find kobuki_description)/urdf/kobuki_gazebo.urdf.xacro"/>
-  <xacro:property name="camara" value="0.05" />
+  <xacro:property name="camara" value="0.0001" />
   <xacro:property name="M_PI" value="3.1415926535897931" />
 
   <!-- Kobuki -->
@@ -238,9 +238,10 @@
     <!--joint camara de profunidad-->
     <joint name="camara_profundidad_joint" type="fixed">
       <!--axis xyz="0 1 0" /-->
-      <origin xyz ="0.1 0 0.15" rpy="0 0 0"/>  <!--heght480-640/2-->
+      <origin xyz="0.12 0 0.352" rpy="0 -0.00031618 0" />  <!--heght480-640/2-->
       <!--parent link="base_link"/-->
-      <parent link="pc_base_up"/>
+      <!--parent link="pc_base_up"/-->
+      <parent link="structure"/>
       <child link="camara_profundidad"/>
     </joint>
 
@@ -257,8 +258,8 @@
         <origin xyz="0 0 0" rpy="0 0 0"/>
         <geometry>
           <!--mesh filename="package://kobuki_description/meshes/camera_ASUS_XTION.STL"/-->
-          <!--box size="${camara} ${camara} ${camara}"/-->
-          <box size="0 0 0"/>
+          <box size="${camara} ${camara} ${camara}"/>
+          <!--box size="0 0 0"/-->
         </geometry>
         <material name="red"/>
       </visual>
@@ -286,54 +287,6 @@
       </visual>
     </link>
 
-    <link name="link_palo" type="fixed">
-      <visual>
-        <geometry>
-          <cylinder length="1.42" radius="0.0125"/>
-          <material name="black">
-            <color rgba="0.1 0.1 0.1 1"/>
-          </material>
-        </geometry>
-        <origin xyz="0 0 0" rpy="0 0 0"/>
-      </visual>
-    </link>
-
-    <!--joint name="link_palo_base" type="fixed"-->
-    <joint name="link_palo_to_pc_base_up" type="fixed">
-      <origin xyz="0 0 0.8"/>
-      <parent link="pc_base_up"/>
-      <child link="link_palo"/>
-    </joint>
-
-    <link name="pc_base_down" type="fixed">
-      <visual>
-        <geometry>
-          <mesh filename="package://kobuki_description/meshes/pc_base_down.STL"/>
-        </geometry>
-        <origin xyz="0 0 0" rpy="0 0 0"/>
-      </visual>
-    </link>
-
-    <joint name="pc_base_down_to_base_link" type="fixed">
-      <origin xyz="0 0 0.1"/>
-      <parent link="base_link"/>
-      <child link="pc_base_down"/>
-    </joint>
-
-    <link name="pc_base_up" type="fixed">
-      <visual>
-        <geometry>
-          <mesh filename="package://kobuki_description/meshes/pc_base_up.STL"/>
-        </geometry>
-        <origin xyz="0 0 0" rpy="0 0 0"/>
-      </visual>
-    </link>
-
-    <joint name="pc_base_up_to_base_link" type="fixed">
-      <origin xyz="0 0 0.18"/>
-      <parent link="base_link"/>
-      <child link="pc_base_up"/>
-    </joint>
 
     <link name="wood_base" type="fixed">
       <visual>
@@ -350,20 +303,21 @@
       <child link="wood_base"/>
     </joint>
 
-    <!--link name="structure" type="fixed">
+    <link name="structure" type="fixed">
       <visual>
         <geometry>
           <mesh filename="package://kobuki_description/meshes/structure_link.STL"/>
         </geometry>
-        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <origin xyz="0.00168628472042168 -2.03976137341799E-07 0.150942765196013" rpy="0 0 0"/>
       </visual>
-    </link-->
+    </link>
 
-    <!--joint name="structure_to_base" type="fixed">
-      <origin xyz="0 0 0"/>
+    <joint name="structure_to_base" type="fixed">
+      <origin xyz="0 0 -0.07"/>
       <parent link="base_link"/>
       <child link="structure"/>
-    </joint-->
+      <axis xyz="0 0 1" />
+    </joint>
 
     <!-- Kobuki Gazebo simulation details -->
     <kobuki_sim/>
