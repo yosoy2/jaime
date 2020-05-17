@@ -113,17 +113,6 @@ rebuild_cache/fast: rebuild_cache
 
 .PHONY : rebuild_cache/fast
 
-# Special rule for the target test
-test:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running tests..."
-	/usr/bin/ctest --force-new-ctest-process $(ARGS)
-.PHONY : test
-
-# Special rule for the target test
-test/fast: test
-
-.PHONY : test/fast
-
 # Special rule for the target edit_cache
 edit_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
@@ -134,6 +123,17 @@ edit_cache:
 edit_cache/fast: edit_cache
 
 .PHONY : edit_cache/fast
+
+# Special rule for the target test
+test:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running tests..."
+	/usr/bin/ctest --force-new-ctest-process $(ARGS)
+.PHONY : test
+
+# Special rule for the target test
+test/fast: test
+
+.PHONY : test/fast
 
 # The main all target
 all: cmake_check_build_system
@@ -183,51 +183,6 @@ kobuki_auto_docking_nodelet/fast:
 .PHONY : kobuki_auto_docking_nodelet/fast
 
 # Convenience name for target.
-kobuki/kobuki_auto_docking/CMakeFiles/nav_msgs_generate_messages_nodejs.dir/rule:
-	cd /home/edu/jaime/build && $(MAKE) -f CMakeFiles/Makefile2 kobuki/kobuki_auto_docking/CMakeFiles/nav_msgs_generate_messages_nodejs.dir/rule
-.PHONY : kobuki/kobuki_auto_docking/CMakeFiles/nav_msgs_generate_messages_nodejs.dir/rule
-
-# Convenience name for target.
-nav_msgs_generate_messages_nodejs: kobuki/kobuki_auto_docking/CMakeFiles/nav_msgs_generate_messages_nodejs.dir/rule
-
-.PHONY : nav_msgs_generate_messages_nodejs
-
-# fast build rule for target.
-nav_msgs_generate_messages_nodejs/fast:
-	cd /home/edu/jaime/build && $(MAKE) -f kobuki/kobuki_auto_docking/CMakeFiles/nav_msgs_generate_messages_nodejs.dir/build.make kobuki/kobuki_auto_docking/CMakeFiles/nav_msgs_generate_messages_nodejs.dir/build
-.PHONY : nav_msgs_generate_messages_nodejs/fast
-
-# Convenience name for target.
-kobuki/kobuki_auto_docking/CMakeFiles/nav_msgs_generate_messages_lisp.dir/rule:
-	cd /home/edu/jaime/build && $(MAKE) -f CMakeFiles/Makefile2 kobuki/kobuki_auto_docking/CMakeFiles/nav_msgs_generate_messages_lisp.dir/rule
-.PHONY : kobuki/kobuki_auto_docking/CMakeFiles/nav_msgs_generate_messages_lisp.dir/rule
-
-# Convenience name for target.
-nav_msgs_generate_messages_lisp: kobuki/kobuki_auto_docking/CMakeFiles/nav_msgs_generate_messages_lisp.dir/rule
-
-.PHONY : nav_msgs_generate_messages_lisp
-
-# fast build rule for target.
-nav_msgs_generate_messages_lisp/fast:
-	cd /home/edu/jaime/build && $(MAKE) -f kobuki/kobuki_auto_docking/CMakeFiles/nav_msgs_generate_messages_lisp.dir/build.make kobuki/kobuki_auto_docking/CMakeFiles/nav_msgs_generate_messages_lisp.dir/build
-.PHONY : nav_msgs_generate_messages_lisp/fast
-
-# Convenience name for target.
-kobuki/kobuki_auto_docking/CMakeFiles/nav_msgs_generate_messages_eus.dir/rule:
-	cd /home/edu/jaime/build && $(MAKE) -f CMakeFiles/Makefile2 kobuki/kobuki_auto_docking/CMakeFiles/nav_msgs_generate_messages_eus.dir/rule
-.PHONY : kobuki/kobuki_auto_docking/CMakeFiles/nav_msgs_generate_messages_eus.dir/rule
-
-# Convenience name for target.
-nav_msgs_generate_messages_eus: kobuki/kobuki_auto_docking/CMakeFiles/nav_msgs_generate_messages_eus.dir/rule
-
-.PHONY : nav_msgs_generate_messages_eus
-
-# fast build rule for target.
-nav_msgs_generate_messages_eus/fast:
-	cd /home/edu/jaime/build && $(MAKE) -f kobuki/kobuki_auto_docking/CMakeFiles/nav_msgs_generate_messages_eus.dir/build.make kobuki/kobuki_auto_docking/CMakeFiles/nav_msgs_generate_messages_eus.dir/build
-.PHONY : nav_msgs_generate_messages_eus/fast
-
-# Convenience name for target.
 kobuki/kobuki_auto_docking/CMakeFiles/nodelet_generate_messages_lisp.dir/rule:
 	cd /home/edu/jaime/build && $(MAKE) -f CMakeFiles/Makefile2 kobuki/kobuki_auto_docking/CMakeFiles/nodelet_generate_messages_lisp.dir/rule
 .PHONY : kobuki/kobuki_auto_docking/CMakeFiles/nodelet_generate_messages_lisp.dir/rule
@@ -241,21 +196,6 @@ nodelet_generate_messages_lisp: kobuki/kobuki_auto_docking/CMakeFiles/nodelet_ge
 nodelet_generate_messages_lisp/fast:
 	cd /home/edu/jaime/build && $(MAKE) -f kobuki/kobuki_auto_docking/CMakeFiles/nodelet_generate_messages_lisp.dir/build.make kobuki/kobuki_auto_docking/CMakeFiles/nodelet_generate_messages_lisp.dir/build
 .PHONY : nodelet_generate_messages_lisp/fast
-
-# Convenience name for target.
-kobuki/kobuki_auto_docking/CMakeFiles/nav_msgs_generate_messages_py.dir/rule:
-	cd /home/edu/jaime/build && $(MAKE) -f CMakeFiles/Makefile2 kobuki/kobuki_auto_docking/CMakeFiles/nav_msgs_generate_messages_py.dir/rule
-.PHONY : kobuki/kobuki_auto_docking/CMakeFiles/nav_msgs_generate_messages_py.dir/rule
-
-# Convenience name for target.
-nav_msgs_generate_messages_py: kobuki/kobuki_auto_docking/CMakeFiles/nav_msgs_generate_messages_py.dir/rule
-
-.PHONY : nav_msgs_generate_messages_py
-
-# fast build rule for target.
-nav_msgs_generate_messages_py/fast:
-	cd /home/edu/jaime/build && $(MAKE) -f kobuki/kobuki_auto_docking/CMakeFiles/nav_msgs_generate_messages_py.dir/build.make kobuki/kobuki_auto_docking/CMakeFiles/nav_msgs_generate_messages_py.dir/build
-.PHONY : nav_msgs_generate_messages_py/fast
 
 # Convenience name for target.
 kobuki/kobuki_auto_docking/CMakeFiles/bond_generate_messages_cpp.dir/rule:
@@ -363,66 +303,6 @@ bond_generate_messages_lisp/fast:
 .PHONY : bond_generate_messages_lisp/fast
 
 # Convenience name for target.
-kobuki/kobuki_auto_docking/CMakeFiles/nav_msgs_generate_messages_cpp.dir/rule:
-	cd /home/edu/jaime/build && $(MAKE) -f CMakeFiles/Makefile2 kobuki/kobuki_auto_docking/CMakeFiles/nav_msgs_generate_messages_cpp.dir/rule
-.PHONY : kobuki/kobuki_auto_docking/CMakeFiles/nav_msgs_generate_messages_cpp.dir/rule
-
-# Convenience name for target.
-nav_msgs_generate_messages_cpp: kobuki/kobuki_auto_docking/CMakeFiles/nav_msgs_generate_messages_cpp.dir/rule
-
-.PHONY : nav_msgs_generate_messages_cpp
-
-# fast build rule for target.
-nav_msgs_generate_messages_cpp/fast:
-	cd /home/edu/jaime/build && $(MAKE) -f kobuki/kobuki_auto_docking/CMakeFiles/nav_msgs_generate_messages_cpp.dir/build.make kobuki/kobuki_auto_docking/CMakeFiles/nav_msgs_generate_messages_cpp.dir/build
-.PHONY : nav_msgs_generate_messages_cpp/fast
-
-# Convenience name for target.
-kobuki/kobuki_auto_docking/CMakeFiles/kobuki_auto_docking_ros.dir/rule:
-	cd /home/edu/jaime/build && $(MAKE) -f CMakeFiles/Makefile2 kobuki/kobuki_auto_docking/CMakeFiles/kobuki_auto_docking_ros.dir/rule
-.PHONY : kobuki/kobuki_auto_docking/CMakeFiles/kobuki_auto_docking_ros.dir/rule
-
-# Convenience name for target.
-kobuki_auto_docking_ros: kobuki/kobuki_auto_docking/CMakeFiles/kobuki_auto_docking_ros.dir/rule
-
-.PHONY : kobuki_auto_docking_ros
-
-# fast build rule for target.
-kobuki_auto_docking_ros/fast:
-	cd /home/edu/jaime/build && $(MAKE) -f kobuki/kobuki_auto_docking/CMakeFiles/kobuki_auto_docking_ros.dir/build.make kobuki/kobuki_auto_docking/CMakeFiles/kobuki_auto_docking_ros.dir/build
-.PHONY : kobuki_auto_docking_ros/fast
-
-# Convenience name for target.
-kobuki/kobuki_auto_docking/CMakeFiles/nodelet_generate_messages_py.dir/rule:
-	cd /home/edu/jaime/build && $(MAKE) -f CMakeFiles/Makefile2 kobuki/kobuki_auto_docking/CMakeFiles/nodelet_generate_messages_py.dir/rule
-.PHONY : kobuki/kobuki_auto_docking/CMakeFiles/nodelet_generate_messages_py.dir/rule
-
-# Convenience name for target.
-nodelet_generate_messages_py: kobuki/kobuki_auto_docking/CMakeFiles/nodelet_generate_messages_py.dir/rule
-
-.PHONY : nodelet_generate_messages_py
-
-# fast build rule for target.
-nodelet_generate_messages_py/fast:
-	cd /home/edu/jaime/build && $(MAKE) -f kobuki/kobuki_auto_docking/CMakeFiles/nodelet_generate_messages_py.dir/build.make kobuki/kobuki_auto_docking/CMakeFiles/nodelet_generate_messages_py.dir/build
-.PHONY : nodelet_generate_messages_py/fast
-
-# Convenience name for target.
-kobuki/kobuki_auto_docking/CMakeFiles/bond_generate_messages_nodejs.dir/rule:
-	cd /home/edu/jaime/build && $(MAKE) -f CMakeFiles/Makefile2 kobuki/kobuki_auto_docking/CMakeFiles/bond_generate_messages_nodejs.dir/rule
-.PHONY : kobuki/kobuki_auto_docking/CMakeFiles/bond_generate_messages_nodejs.dir/rule
-
-# Convenience name for target.
-bond_generate_messages_nodejs: kobuki/kobuki_auto_docking/CMakeFiles/bond_generate_messages_nodejs.dir/rule
-
-.PHONY : bond_generate_messages_nodejs
-
-# fast build rule for target.
-bond_generate_messages_nodejs/fast:
-	cd /home/edu/jaime/build && $(MAKE) -f kobuki/kobuki_auto_docking/CMakeFiles/bond_generate_messages_nodejs.dir/build.make kobuki/kobuki_auto_docking/CMakeFiles/bond_generate_messages_nodejs.dir/build
-.PHONY : bond_generate_messages_nodejs/fast
-
-# Convenience name for target.
 kobuki/kobuki_auto_docking/CMakeFiles/nodelet_generate_messages_eus.dir/rule:
 	cd /home/edu/jaime/build && $(MAKE) -f CMakeFiles/Makefile2 kobuki/kobuki_auto_docking/CMakeFiles/nodelet_generate_messages_eus.dir/rule
 .PHONY : kobuki/kobuki_auto_docking/CMakeFiles/nodelet_generate_messages_eus.dir/rule
@@ -497,6 +377,51 @@ actionlib_generate_messages_py/fast:
 	cd /home/edu/jaime/build && $(MAKE) -f kobuki/kobuki_auto_docking/CMakeFiles/actionlib_generate_messages_py.dir/build.make kobuki/kobuki_auto_docking/CMakeFiles/actionlib_generate_messages_py.dir/build
 .PHONY : actionlib_generate_messages_py/fast
 
+# Convenience name for target.
+kobuki/kobuki_auto_docking/CMakeFiles/nodelet_generate_messages_py.dir/rule:
+	cd /home/edu/jaime/build && $(MAKE) -f CMakeFiles/Makefile2 kobuki/kobuki_auto_docking/CMakeFiles/nodelet_generate_messages_py.dir/rule
+.PHONY : kobuki/kobuki_auto_docking/CMakeFiles/nodelet_generate_messages_py.dir/rule
+
+# Convenience name for target.
+nodelet_generate_messages_py: kobuki/kobuki_auto_docking/CMakeFiles/nodelet_generate_messages_py.dir/rule
+
+.PHONY : nodelet_generate_messages_py
+
+# fast build rule for target.
+nodelet_generate_messages_py/fast:
+	cd /home/edu/jaime/build && $(MAKE) -f kobuki/kobuki_auto_docking/CMakeFiles/nodelet_generate_messages_py.dir/build.make kobuki/kobuki_auto_docking/CMakeFiles/nodelet_generate_messages_py.dir/build
+.PHONY : nodelet_generate_messages_py/fast
+
+# Convenience name for target.
+kobuki/kobuki_auto_docking/CMakeFiles/bond_generate_messages_nodejs.dir/rule:
+	cd /home/edu/jaime/build && $(MAKE) -f CMakeFiles/Makefile2 kobuki/kobuki_auto_docking/CMakeFiles/bond_generate_messages_nodejs.dir/rule
+.PHONY : kobuki/kobuki_auto_docking/CMakeFiles/bond_generate_messages_nodejs.dir/rule
+
+# Convenience name for target.
+bond_generate_messages_nodejs: kobuki/kobuki_auto_docking/CMakeFiles/bond_generate_messages_nodejs.dir/rule
+
+.PHONY : bond_generate_messages_nodejs
+
+# fast build rule for target.
+bond_generate_messages_nodejs/fast:
+	cd /home/edu/jaime/build && $(MAKE) -f kobuki/kobuki_auto_docking/CMakeFiles/bond_generate_messages_nodejs.dir/build.make kobuki/kobuki_auto_docking/CMakeFiles/bond_generate_messages_nodejs.dir/build
+.PHONY : bond_generate_messages_nodejs/fast
+
+# Convenience name for target.
+kobuki/kobuki_auto_docking/CMakeFiles/kobuki_auto_docking_ros.dir/rule:
+	cd /home/edu/jaime/build && $(MAKE) -f CMakeFiles/Makefile2 kobuki/kobuki_auto_docking/CMakeFiles/kobuki_auto_docking_ros.dir/rule
+.PHONY : kobuki/kobuki_auto_docking/CMakeFiles/kobuki_auto_docking_ros.dir/rule
+
+# Convenience name for target.
+kobuki_auto_docking_ros: kobuki/kobuki_auto_docking/CMakeFiles/kobuki_auto_docking_ros.dir/rule
+
+.PHONY : kobuki_auto_docking_ros
+
+# fast build rule for target.
+kobuki_auto_docking_ros/fast:
+	cd /home/edu/jaime/build && $(MAKE) -f kobuki/kobuki_auto_docking/CMakeFiles/kobuki_auto_docking_ros.dir/build.make kobuki/kobuki_auto_docking/CMakeFiles/kobuki_auto_docking_ros.dir/build
+.PHONY : kobuki_auto_docking_ros/fast
+
 src/auto_docking_ros.o: src/auto_docking_ros.cpp.o
 
 .PHONY : src/auto_docking_ros.o
@@ -562,14 +487,10 @@ help:
 	@echo "... install"
 	@echo "... list_install_components"
 	@echo "... rebuild_cache"
+	@echo "... edit_cache"
 	@echo "... test"
 	@echo "... kobuki_auto_docking_nodelet"
-	@echo "... nav_msgs_generate_messages_nodejs"
-	@echo "... edit_cache"
-	@echo "... nav_msgs_generate_messages_lisp"
-	@echo "... nav_msgs_generate_messages_eus"
 	@echo "... nodelet_generate_messages_lisp"
-	@echo "... nav_msgs_generate_messages_py"
 	@echo "... bond_generate_messages_cpp"
 	@echo "... actionlib_generate_messages_eus"
 	@echo "... nodelet_generate_messages_nodejs"
@@ -577,15 +498,14 @@ help:
 	@echo "... bond_generate_messages_eus"
 	@echo "... bond_generate_messages_py"
 	@echo "... bond_generate_messages_lisp"
-	@echo "... nav_msgs_generate_messages_cpp"
-	@echo "... kobuki_auto_docking_ros"
-	@echo "... nodelet_generate_messages_py"
-	@echo "... bond_generate_messages_nodejs"
 	@echo "... nodelet_generate_messages_eus"
 	@echo "... actionlib_generate_messages_lisp"
 	@echo "... actionlib_generate_messages_cpp"
 	@echo "... actionlib_generate_messages_nodejs"
 	@echo "... actionlib_generate_messages_py"
+	@echo "... nodelet_generate_messages_py"
+	@echo "... bond_generate_messages_nodejs"
+	@echo "... kobuki_auto_docking_ros"
 	@echo "... src/auto_docking_ros.o"
 	@echo "... src/auto_docking_ros.i"
 	@echo "... src/auto_docking_ros.s"
