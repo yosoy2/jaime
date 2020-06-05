@@ -235,10 +235,10 @@
     </joint-->
 
 
-    <!--joint camara de profunidad-->
+    <!--joint camara de profunidad-0.00031618-->
     <joint name="camara_profundidad_joint" type="fixed">
       <!--axis xyz="0 1 0" /-->
-      <origin xyz="0.12 0 0.352" rpy="0 -0.00031618 0" />  <!--heght480-640/2-->
+      <origin xyz="0.12 0 0.352" rpy="0 ${M_PI/11} 0" />  <!--heght480-640/2-->
       <!--parent link="base_link"/-->
       <!--parent link="pc_base_up"/-->
       <parent link="structure"/>
@@ -287,6 +287,21 @@
       </visual>
     </link>
 
+    <!--agrega laser hokuyo-->
+    <link name="hokuyo_link" type="fixed">
+      <visual>
+        <origin xyz="0 0 0" rpy="${M_PI/2} 0 ${M_PI/2}"/>
+        <geometry>
+          <mesh filename="package://kobuki_description/meshes/Hokuyo_UST_10LX.STL"/>
+        </geometry>
+      </visual>
+    </link>
+
+    <joint name="hokuyo_to_wood_base_link" type="fixed">
+      <origin xyz="0.11 0 0.11"/>
+      <parent link="wood_base"/>
+      <child link="hokuyo_link"/>
+    </joint>
 
     <link name="wood_base" type="fixed">
       <visual>
